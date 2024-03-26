@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mayday 的在线 HTML</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .mydiv {
+        background-image: url("https://s21.ax1x.com/2024/03/26/pF5q2y8.jpg"); /* 替换为你的图片路径 */
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 100%;
+      }
+    </style>
+    <script>
+      function calculate() {
+        // 获取输入的 A 和 B 的值
+        var A = parseFloat(document.getElementById("inputA").value);
+        var B = parseFloat(document.getElementById("inputB").value);
+
+        // 计算 L
+        var L = 598.223 + A;
+
+        // 计算 D
+        var D = L - B;
+
+        // 计算 E
+        var E = D / 2;
+
+        // 计算 Z
+        var Z = A - D;
+
+        // 显示计算结果，保留三位小数
+        document.getElementById("resultL").innerHTML =
+          "毛坯长度 L：" + L.toFixed(3) + "mm";
+        document.getElementById("resultD").innerHTML =
+          "总余量：" + D.toFixed(3) + "mm";
+        document.getElementById("resultE").innerHTML =
+          "单次加工量：" + E.toFixed(3) + "mm";
+        document.getElementById("resultZ").innerHTML =
+          "Z轴零偏：" + Z.toFixed(3);
+      }
+    </script>
+  </head>
+
+  <body>
+    <div
+      style="
+        height: 115px;
+        background-color: #f1f1f1;
+        text-align: center;
+        padding: 40px;
+      "
+      class="mydiv"
+    >
+      <h01
+        style="
+          font-size: 2em;
+          font-weight: bold;
+          color: #ffffff;
+          text-align: center;
+
+          background: rgba(0, 0, 0, 0.5);
+        "
+      >
+        立车计算小工具
+      </h01>
+    </div>
+
+    <div
+      style="
+        max-width: 700px;
+        margin: 45px auto;
+        padding: 15px;
+        line-height: 2.2;
+      "
+    >
+      <h4>点击"计算"按钮，将自动计算筒体毛坯 L 长度、加工余量。</h4>
+      <p>
+        Z 轴的测量值：<input type="text" id="inputA" /><br />
+        筒体图纸总长：<input type="text" id="inputB" />mm<br />
+        <button style="width: 150px; height: 30px" onclick="calculate()">
+          计算
+        </button>
+      </p>
+      <div id="resultL"></div>
+      <div id="resultD"></div>
+      <div id="resultE"></div>
+      <div style="color: #ff0000" id="resultZ"></div>
+    </div>
+    <div
+      style="
+        background-color: #f1f1f1;
+        text-align: center;
+        padding: 40px;
+        font-size: 12px;
+      "
+    >
+      <p>Copyright © mayday</p>
+    </div>
+  </body>
+</html>
